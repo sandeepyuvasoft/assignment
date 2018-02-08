@@ -1,0 +1,18 @@
+development:
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: project_assignment_development
+  username: root
+  password: root
+
+# test:
+#   <<: *default
+#   database: project_assignment_test
+
+# production:
+#   <<: *default
+#   database: project_assignment_production
+#   username: deploy
+#   password: <%= ENV['PRESPECTEC_DATABASE_PASSWORD'] %>

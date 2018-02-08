@@ -1,0 +1,2 @@
+class AssignmentCoordinate < ApplicationRecord
+end
