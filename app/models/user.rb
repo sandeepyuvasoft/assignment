@@ -8,5 +8,4 @@ class User < ApplicationRecord
 
   has_many :assignment_coordinates
   has_many :assignments, through: :assignment_coordinates
-  accepts_nested_attributes_for :assignment_coordinates, reject_if: :all_blank, allow_destroy: true
 end

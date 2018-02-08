@@ -1,22 +1,13 @@
 <div class="container">
   <%= form_for @assignment do |f| %>
-    <div class="form-section">
-      <%=f.label :subject%>
-      <%= f.text_field :subject, required: true, class: "form-control", placeholder: "subject" %>
+    <%=f.fields_for :@assignment  do |assignment|%>
+      <%=assignment.label :subject%>
+      <%= assignment.text_field :subject, required: true, class: "form-control", placeholder: "subject" %>
+    <%end%>
 
-      <%=f.label :description%>
-      <%= f.text_field :description, required: true, class: "form-control", placeholder: "description" %>
-    </div><br/>
-
-    <div class="form-section">
-      <%=f.label :student%>
-      <%= f.select :assignee_id, options_for_select(Role.find_by(name:'Student').users.collect{|t| [t.email, t.id]}),include_blank: "Select" ,:required => true%>
-    </div><br/>
-
-    <div class="form-section">
-      <%=f.label :teacher%><br/>
-      <%=select_tag "teacher", options_for_select(Role.find_by(name:'Teacher').users.collect{|t| [t.email, t.id]}),include_blank: "Select" ,:required => true ,:multiple => true, :size =>5%>
-    </div><br/>
+     <%= link_to_add_association f.assignment do %>
+      <i class="icon-cancel-circled"></i>Add More
+     <% end %>
     <%= f.button :submit, class:'btn btn-primary'%>
   <% end %>
 </div>
