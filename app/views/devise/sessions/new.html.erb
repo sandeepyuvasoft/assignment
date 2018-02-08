@@ -1,26 +1,26 @@
-<h2>Log in</h2>
+<div class="form-bg"> 
+  <div class="form-main-container">
+    <h2>Login here</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <% if devise_mapping.rememberable? -%>  
+        <ul class="agileinfotickwthree">
+          <li>
+            <%= f.check_box :remember_me, id: "brand1" %>
+            <label for="brand1"><span></span>Remember me</label>
+            <%= render "devise/shared/links" %>
+          </li>
+        </ul>   
+      <% end -%>
+
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div><br>
+    <% end %>
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      New User Registration. <%= link_to "Sign up", new_registration_path(resource_name), class: "signup_link" %>
+    <% end -%>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

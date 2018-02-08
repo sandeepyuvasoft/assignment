@@ -1,0 +1,233 @@
+/*-- Index-Page-Styling --*/
+
+body .form-main-container {
+	color: #FFF;
+	font-family: 'Quicksand', sans-serif;
+	text-align: center;
+}
+
+body .form-main-container a {
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+	text-decoration: none;
+}
+
+.form-main-container input[type="button"], 
+.form-main-container input[type="submit"] {
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}
+
+.form-main-container h1 {
+    font-size: 45px;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 7px;
+    margin: 65px auto;
+}
+
+.form-main-container a.signup_link {
+	color: #fff;
+	font-size: 16px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.form-main-container a.signup_link:hover {
+	text-decoration: underline;
+	color: #be2828;
+}
+.form-bg {
+	background: url("/assets/b2.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	padding: 50px 0;
+	height: 100vh;
+}
+
+.form-main-container {
+    width: 45%;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 55px;
+  }
+
+.form-main-container h2 {
+    font-size: 25px;
+    font-weight: 300;
+    margin:0 0 35px 0;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.form-main-container input[type="text"],
+.form-main-container input[type="password"],
+.form-main-container input[type="email"]{
+	width: 84%;
+	padding: 15px 10px 15px;
+	font-size: 14px;
+	background: transparent;
+	border: 2px solid #f2f2f2;
+	outline: none;
+	margin-bottom: 26px;
+	color: #fff;
+	font-family: 'Quicksand', sans-serif;
+}
+.form-main-container select {
+	width: 84%;
+	padding: 15px 10px 15px;
+	font-size: 14px;
+	background: transparent;
+	border: 2px solid #f2f2f2;
+	outline: none;
+	margin-bottom: 26px;
+	color: #fff;
+	font-family: 'Quicksand', sans-serif;
+}
+.form-main-container select option {
+	color: #333;
+}
+.form-main-container input[type="text"]{
+	background: url("/assets/user.png") no-repeat 382px 11px;
+	background-size: 25px;
+}
+.form-main-container input[type="email"] {
+	background: url("/assets/e-mail.png") no-repeat 382px 11px;
+	background-size: 25px;
+}
+
+.form-main-container input[type="password"] {
+	background: url("/assets/password.png") no-repeat 382px 11px;
+	background-size: 25px;
+}
+
+.form-main-container ul.agileinfotickwthree {
+	list-style: none;
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 40px;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.form-main-container ul.agileinfotickwthree li input[type="checkbox"] {
+	display: none;
+}
+
+.form-main-container ul.agileinfotickwthree li input[type="checkbox"]+label {
+	position: relative;
+	padding-left: 50px;
+	border: #F0F8FF;
+	display: inline-block;
+	font-size: 15px;
+  color: #fff;
+}
+.form-main-container ul.agileinfotickwthree a {
+    float: right;
+    margin-right: 40px;
+    color: #fff;
+    font-size: 15px;
+}
+.form-main-container ul.agileinfotickwthree a:hover {
+    color: #be2828;
+}
+.form-main-container ul.agileinfotickwthree li input[type="checkbox"]+label span:first-child {
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	border: 2px solid #be2828;
+	position: absolute;
+	top: 3px;
+  left: 30px;
+	bottom: 4px;
+}
+
+.form-main-container ul.agileinfotickwthree li input[type="checkbox"]:checked+label span:first-child:before {
+	content: "";
+	background: url(/assets/tick.png)no-repeat;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	font-size: 10px;
+	width: 10px;
+	height: 10px;
+}
+
+.form-main-container input[type="submit"] {
+	font-size: 16px;
+  padding: 10px 60px;
+  background-color: #be2828;
+  color: #FFF;
+  border: none;
+  border-radius: 0px;
+  outline: none;
+  float: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.form-main-container input[type="submit"]:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.aitssendbuttonw3ls p {
+    text-align: center;
+    margin-top: 40px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.aitssendbuttonw3ls p a {
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 20px;
+    border: 1px solid #fff;
+}
+.aitssendbuttonw3ls p a span {
+	font-size: 18px;
+}
+
+.aitssendbuttonw3ls p a:hover {
+	color: #537b35;
+  border: 1px solid #537b35;
+}
+
+::-webkit-input-placeholder {
+	color: #FFF;
+}
+
+::-moz-placeholder {
+	color: #FFF;
+}
+
+::-moz-placeholder {
+	color: #FFF;
+}
+
+::-ms-input-placeholder {
+	color: #FFF;
+}
+
+.alert{
+	position: fixed;
+	z-index: 99999;
+	margin: 10px;
+	width: 100%;
+}
+
+
+/*-- Index-Page-Styling --*/

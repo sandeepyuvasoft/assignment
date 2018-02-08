@@ -61,3 +61,4 @@ gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'rolify'
 gem 'cancancan', '~> 2.0'
+gem "cocoon"

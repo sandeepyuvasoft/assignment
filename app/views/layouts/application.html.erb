@@ -3,14 +3,16 @@
   <head>
     <title>ProjectAssignment</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%if notice%>
+      <p class="alert alert-success"><%= notice %></p>
+    <%elsif alert%>  
+      <p class="alert alert-danger"><%= alert %></p>
+    <%end%>
     <%if user_signed_in?%>
       <%=link_to "Sign_out" , destroy_user_session_path , method: :delete%>
     <%end%>
