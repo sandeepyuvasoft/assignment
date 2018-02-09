@@ -6,6 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :assignment_coordinates
-  has_many :assignments, through: :assignment_coordinates
+  #has_many :assignment_coordinates
+  #has_many :assignments, through: :assignment_coordinates
+  has_many :assignments
+  accepts_nested_attributes_for :assignments, reject_if: :all_blank, allow_destroy: true
 end

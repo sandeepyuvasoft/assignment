@@ -1,7 +1,5 @@
 class Assignment < ApplicationRecord
-	has_many :assignment_coordinates
-  has_many :users, through: :assignment_coordinates
-  belongs_to :assignment
-  accepts_nested_attributes_for :assignment, :allow_destroy => true
-
+	serialize(:student_ids, Array)
+	serialize(:teacher_ids, Array)
+	belongs_to :user
 end

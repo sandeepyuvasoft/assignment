@@ -1,20 +1,14 @@
 <div class="container">
-  <%= nested_form_for @assignment do |f| %>
-    <%= f.fields_for :assignment do |ff|%>
-      <%=ff.label :subject%>
-      <%= ff.text_field :subject, required: true, class: "form-control", placeholder: "subject" %>
-
-      <%=ff.label :description%>
-      <%= ff.text_field :description, required: true, class: "form-control", placeholder: "description" %><br/>
-
-      <%=ff.label :student%>
-      <%= ff.select :assignee_id, options_for_select(Role.find_by(name:'Student').users.collect{|t| [t.email, t.id]}),include_blank: "Select" ,:required => true%><br/>
-
-      <%=ff.label :teacher%><br/>
-      <%=ff.select :assignment_coordinates, options_for_select(Role.find_by(name:'Teacher').users.collect{|t| [t.email, t.id]}),include_blank: "Select" ,:required => true ,:multiple => true, :size =>4%><br/>
-      <%= ff.link_to_remove "Remove assignment" %>
-    <%end%>
-    <%= f.link_to_add "Add assignment", :assignment %><br>
+  <%= form_for @user, url: assignments_path ,method: :post do |f| %>
+    <div class="Assignments">
+      <%= f.fields_for :assignments do |ff|%>
+        <%= render 'assignment_fields', f: ff%>
+      <%end%>
+      
+      <div class="links">
+        <%= link_to_add_association 'add task', f, :assignments %>
+      </div>
+    </div>
     <%= f.button :submit, class:'btn btn-primary'%>
   <% end %>
 </div>

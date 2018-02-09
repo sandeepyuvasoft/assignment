@@ -4,7 +4,8 @@ class AssignmentsController < ApplicationController
 
   def new
   	if(current_user.has_role? :Teacher)	
-  		@assignment = Assignment.new
+  		@user = User.new
+      @user.assignments
   	else
   		redirect_to root_path
   	end
@@ -12,9 +13,9 @@ class AssignmentsController < ApplicationController
 
   def create
     debugger
-  	assignment = Assignment.new(assignment_params)
-  	if assignment.save
-  		add_assignment_coordinate(assignment)
+  	assignment = current_user.update(assignment_params)
+    
+  	if assignment
   		redirect_to root_path
   	else
   		redirect_to root_path
@@ -22,16 +23,8 @@ class AssignmentsController < ApplicationController
   end
 
   private
-  def assignment_params
-  	params.require(:assignment).permit(:subject,:description,:assignee_id)
-  end
 
-  def add_assignment_coordinate(assignment)
-  	params[:teacher].push(current_user.id)
-  	params[:teacher].each do |teacher|
-  		if teacher.present?
-  			AssignmentCoordinate.create(assignment_id: assignment.id ,user_id: teacher)
-  		end
-  	end
+  def assignment_params
+    params.require(:user).permit(assignments_attributes: [:id,:subject, :description, :_destroy,:student_ids => [], :teacher_ids => []])
   end
 end
