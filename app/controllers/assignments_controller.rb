@@ -11,6 +11,7 @@ class AssignmentsController < ApplicationController
   end
 
   def create
+    debugger
   	assignment = Assignment.new(assignment_params)
   	if assignment.save
   		add_assignment_coordinate(assignment)
