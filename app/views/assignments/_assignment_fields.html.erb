@@ -3,13 +3,7 @@
   <%= f.text_field :subject, required: true, class: "form-control", placeholder: "subject" %>
 
   <%= f.label :description%>
-  <%= f.text_field :description, required: true, class: "form-control", placeholder: "description" , name: "description[]" %><br/>
+  <%= f.text_field :description, required: true, class: "form-control", placeholder: "description"%><br/>
 
-  <%= f.label :student%>
-  <%= f.select :student_ids, options_for_select(Role.find_by(name:'Student').users.collect{|t| [t.email, t.id]}),{ :prompt => "Please select"} ,{:multiple => true} %><br/>
-  <%#= f.text_field :student_ids, required: true, class: "form-control", placeholder: "description" %><br/>
-
-  <%= f.label :teacher%><br/>
-  <%#= f.select :teacher_ids, options_for_select(Role.find_by(name:'Teacher').users.collect{|t| [t.email, t.id]}),include_blank: "Select" ,:required => true ,:multiple => true, :size =>4%><br/>
   <%= link_to_remove_association "remove task", f %>
 </div>

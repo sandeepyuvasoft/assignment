@@ -1,0 +1,15 @@
+<div class="form-group">
+	Subject :
+	<%=@assignment.subject%><br/>
+	Description :
+	<%=@assignment.description%><br/>
+	<%= form_for @assignment_coordinator, url: add_assignment_coordinator_path,method: :post do |f| %>
+		<%= f.label :student%><br/>
+ 		<%= f.select :user_id, options_for_select(Role.find_by(name:'Student').users.collect{|t| [t.email, t.id]}),{ :prompt => "Please select"} ,{:multiple => true} %><br/>
+
+ 		<%= f.label :teacher%><br/>
+ 		<%= f.select :user_id, options_for_select(Role.find_by(name:'Teacher').users.where.not(id: current_user).collect{|t| [t.email, t.id]}),{ :prompt => "Please select"} ,{:multiple => true} %><br/>
+ 		<%= f.hidden_field :assignment_id, :value => @assignment.id %>
+	  <%= f.button :submit, class:'btn btn-primary'%>
+	<% end %>
+</div>

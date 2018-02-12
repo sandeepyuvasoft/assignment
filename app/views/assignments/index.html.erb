@@ -1,2 +1,18 @@
 <h1 align="center">Assignments</h1>
-
+<%if current_user.has_role? :Teacher%>
+	<h3><%=link_to "Add Assignment" , new_assignment_path%></h3>
+<%end%>
+<table border="">
+	<tr>
+		<th>Subject</th>
+		<th>Description</th>
+		<th>Action</th>
+	</tr>
+	<tr>
+		<%@assignments.each do |assignment|%>
+			<td><%=assignment.subject%></td>
+			<td><%=assignment.description%></td>
+			<td><%=link_to "Show" , assignment_path(assignment.id)%></td>
+	</tr>
+		<%end%>	
+</table>

@@ -1,4 +1,2 @@
 <h1 align="center">Assignment</h1>
-<%if current_user.has_role? :Teacher%>
-	<%=link_to "Add Assignment" , new_assignment_path%>
-<%end%>
+<h3><%=link_to "Assignment" , assignments_path%></h3>

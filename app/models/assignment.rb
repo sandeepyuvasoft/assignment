@@ -1,5 +1,5 @@
 class Assignment < ApplicationRecord
-	serialize(:student_ids, Array)
-	serialize(:teacher_ids, Array)
 	belongs_to :user
+	has_many :assignment_coordinators
+  has_many :users, through: :assignment_coordinators
 end

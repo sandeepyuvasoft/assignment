@@ -6,9 +6,17 @@
       <%end%>
       
       <div class="links">
-        <%= link_to_add_association 'add task', f, :assignments %>
+        <h3><%= link_to_add_association 'Add assignment', f, :assignments , id: 'show_submit_button'%></h3>
       </div>
     </div>
-    <%= f.button :submit, class:'btn btn-primary'%>
+    <%= f.button :submit, class:'btn btn-primary',id: 'show_button'%>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  document.getElementById("show_button").style.display = "none";
+  $("#show_submit_button").click(function(){
+    $('#show_button').show();
+  });
+
+</script>

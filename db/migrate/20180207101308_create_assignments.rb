@@ -3,7 +3,7 @@ class CreateAssignments < ActiveRecord::Migration[5.1]
     create_table :assignments do |t|
       t.string :subject
       t.text :description
-      t.integer :assignee_id
+      t.integer :user_id
 
       t.timestamps
     end
