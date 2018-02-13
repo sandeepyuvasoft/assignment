@@ -1,0 +1,13 @@
+<table class="table table-striped table-hover" border="1">
+  <tbody>
+      <tr>
+        <th>Comment</th>
+      </tr>
+      <%comments = Assignment.find(params[:assignment_id]).comments.last(5)%>
+      <%comments.each do |comment|%>
+        <tr>
+          <td><%=comment.comment%></td>
+        </tr>
+      <%end%>
+  </tbody>
+</table>

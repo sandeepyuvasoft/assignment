@@ -1,6 +1,13 @@
 class AssignmentsController < ApplicationController
   def index
-    @assignments = Assignment.all
+    @assignments = []
+    @assignments.push(current_user.assignments)
+    if (current_user.assignment_coordinators)
+      @assignment_coordinators = []
+      current_user.assignment_coordinators.each do |assig_coor|
+        @assignment_coordinators.push(assig_coor.assignment)
+      end
+    end
   end
 
   def new

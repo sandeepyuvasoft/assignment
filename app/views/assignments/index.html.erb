@@ -2,17 +2,35 @@
 <%if current_user.has_role? :Teacher%>
 	<h3><%=link_to "Add Assignment" , new_assignment_path%></h3>
 <%end%>
-<table border="">
-	<tr>
-		<th>Subject</th>
-		<th>Description</th>
-		<th>Action</th>
-	</tr>
-	<tr>
-		<%@assignments.each do |assignment|%>
-			<td><%=assignment.subject%></td>
-			<td><%=assignment.description%></td>
-			<td><%=link_to "Show" , assignment_path(assignment.id)%></td>
-	</tr>
-		<%end%>	
-</table>
+<%if @assignments.flatten.present?%>
+	<table border="">
+		<tr>
+			<th>Subject</th>
+			<th>Description</th>
+			<th>Action</th>
+		</tr>
+		<tr>
+			<%@assignments.flatten.each do |assignment|%>
+				<td><%=assignment.subject%></td>
+				<td><%=assignment.description%></td>
+				<td><%=link_to "Show" , assignment_path(assignment.id)%></td>
+		</tr>
+			<%end%>	
+	</table>
+<%end%><br/>
+<%if @assignment_coordinators.flatten.present?%>
+	<table border="">
+		<tr>
+			<th>Subject</th>
+			<th>Description</th>
+			<th>Action</th>
+		</tr>
+		<tr>
+			<%@assignment_coordinators.flatten.each do |assignment|%>
+				<td><%=assignment.subject%></td>
+				<td><%=assignment.description%></td>
+				<td><%=link_to "Show" , assignment_path(assignment.id)%></td>
+		</tr>
+			<%end%>	
+	</table>
+<%end%>
