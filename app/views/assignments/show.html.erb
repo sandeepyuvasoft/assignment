@@ -1,38 +1,29 @@
-<div class="form-group">
+<div class="create_custom_form_css">
 	Subject : <%=@assignment.subject%><br/>
 	Description : <%=@assignment.description%><br/>
-
 	<div id="display-data"><%= render 'comments/show_comments'%></div>
-
-  <input type="text" class="form-control" placeholder="Enter Comment" id="comment">
-	<button type="submit" class="btn btn-primary submit_comment" assignment_id="<%=@assignment.id%>">Submit</button>
-
-
-	<%if @assignment.user == current_user%>
-		<%= form_for @assignment_coordinator, url: add_assignment_coordinator_path,method: :post do |f| %>
-			<%= f.label :student%><br/>
-	 		<%= f.select :user_id, options_for_select(Role.find_by(name:'Student').users.collect{|t| [t.email, t.id]}),{ :prompt => "Please select"} ,{:multiple => true} %><br/>
-
-	 		<%= f.label :teacher%><br/>
-	 		<%= f.select :user_id, options_for_select(Role.find_by(name:'Teacher').users.where.not(id: current_user).collect{|t| [t.email, t.id]}),{ :prompt => "Please select"} ,{:multiple => true} %><br/>
-	 		<%= f.hidden_field :assignment_id, :value => @assignment.id %>
-		  <%= f.button :submit, class:'btn btn-primary'%>
-		<% end %>
-	<%end%>
+	
+	<form >
+		<input type="text" class="form-control" placeholder="Enter Comment" id="comment">
+	  <button type="submit" class="btn btn-primary submit_comment" assignment_id="<%=@assignment.id%>">Submit</button>
+	</form> 
 </div>
 
 
 <script type="text/javascript">
-	$(".submit_comment").click(function() {
+	$(".submit_comment").click(function(event) {
+		event.preventDefault();
 		var data = $("#comment").val()
 		var id = $(this).attr('assignment_id')
-		$.ajax({
-			type: "POST",
-		  url: '/assignments/'+id+'/comments',
-	    data: {data: data},
-	    success: function(data) {
-        $('#comment').val("");
-    	}
-		})
+		if (!data == ""){
+			$.ajax({
+				type: "POST",
+			  url: '/assignments/'+id+'/comments',
+		    data: {data: data},
+		    success: function(data) {
+	        $('#comment').val("");
+	    	}
+			})
+		}
 	});
 </script>

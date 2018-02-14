@@ -26,7 +26,7 @@ body .form-main-container a {
 
 .form-main-container h1 {
     font-size: 45px;
-    font-weight: 300;
+    font-weight: 400;
     color: #fff;
     letter-spacing: 7px;
     margin: 65px auto;
@@ -44,6 +44,7 @@ body .form-main-container a {
 }
 .form-bg {
 	background: url("/assets/b2.jpg");
+  background-color: #cccccc;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
@@ -56,7 +57,7 @@ body .form-main-container a {
 }
 
 .form-main-container {
-    width: 45%;
+    width: 50%;
     margin: 0 auto;
     background: rgba(0, 0, 0, 0.5);
     padding: 30px;
@@ -235,7 +236,7 @@ body .form-main-container a {
 /*header code*/
 .navbar 
 {
-    background-color: #f9f9f9;
+    background-color: #D2A7C2;
     /*border-color: #f9f9f9;*/
 }
 .navbar-nav > .active > a 
@@ -336,4 +337,20 @@ color: #04A3ED;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     background-image: none;
+}
+
+
+/*image header*/
+
+.header img {
+  float: left;
+  width: 160px;
+  height: 60px;
+  background: #D2A7C2;
+}
+
+.header h1 {
+  position: relative;
+  top: 18px;
+  left: 10px;
 }

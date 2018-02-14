@@ -1,13 +1,8 @@
-<table class="table table-striped table-hover" border="1">
-  <tr>
-    <th>Comment</th>
-  </tr>
-	<%comments = @assignment.comments.last(5)%>
-	<%if comments.present?%>
-		<%comments.each do |comment|%>
-			<tr>
-  			<td><%=comment.comment%></td>
-  		</tr>
-  	<%end%>
-  <%end%>	
-</table>
+<%comments = @assignment.comments.last(5)%>
+<%if comments.present?%>
+  Comment : 
+  <br/>
+	<%comments.each do |comment|%>
+	 <%=comment.comment%><br/>
+	<%end%>
+<%end%>	

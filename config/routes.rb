@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   root 'assignments#index'
   post 'add_assignment_coordinator' => 'assignments#add_assignment_coordinator', as: 'add_assignment_coordinator'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/assigned/:id' => 'assignments#assigned', as: 'assigned'
 
   resources :assignments do
   	resources :comments

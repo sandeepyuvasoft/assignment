@@ -18,9 +18,13 @@ class AssignmentsController < ApplicationController
   	end
   end
 
-  def show
+  def assigned
     @assignment = Assignment.find(params[:id])
     @assignment_coordinator = AssignmentCoordinator.new
+  end
+
+  def show
+    @assignment = Assignment.find(params[:id])
   end
 
   def create
