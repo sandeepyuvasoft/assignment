@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180207113712) do
+ActiveRecord::Schema.define(version: 20180213065035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "assignment_coordinates", force: :cascade do |t|
+  create_table "assignment_coordinators", force: :cascade do |t|
     t.integer "assignment_id"
     t.integer "user_id"
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,7 +26,15 @@ ActiveRecord::Schema.define(version: 20180207113712) do
   create_table "assignments", force: :cascade do |t|
     t.string "subject"
     t.text "description"
-    t.integer "assignee_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "comment"
+    t.integer "user_id"
+    t.integer "assignment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
