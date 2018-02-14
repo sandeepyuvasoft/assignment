@@ -354,3 +354,14 @@ color: #04A3ED;
   top: 18px;
   left: 10px;
 }
+
+.form-control-show-size{
+  width: 50%;
+  margin-left: 20%;
+
+}
+
+.multiselect-button{
+  margin-left: 33%;
+  width: 20%;
+}

@@ -62,3 +62,4 @@ gem 'jquery-rails'
 gem 'rolify'
 gem 'cancancan', '~> 2.0'
 gem "cocoon"
+gem 'bootstrap-multiselect-rails'

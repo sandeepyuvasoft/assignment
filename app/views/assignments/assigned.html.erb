@@ -1,16 +1,18 @@
 <div class="form-group">
-	Subject : <%=@assignment.subject%><br/>
-	Description : <%=@assignment.description%><br/>
-		
+	<label class="col-md-4">Subject :</label>
+	<input type="text" class="form-control form-control-show-size" value="<%=@assignment.subject%>" class="field left" readonly><br/>
+	<label class="col-md-4">Description :</label>
+	<input type="text" class="form-control form-control-show-size" value="<%=@assignment.description%>" class="field left" readonly><br/>
+
 	<%if @assignment.user == current_user%>
 		<%= form_for @assignment_coordinator, url: add_assignment_coordinator_path,method: :post do |f| %>
-			<%= f.label :student%><br/>
-	 		<%= f.select :user_id, options_for_select(Role.find_by(name:'Student').users.collect{|t| [t.email, t.id]}),{ :prompt => "Please select"} ,{:multiple => true} %><br/>
+			<%= f.label :student,:class => 'col-md-4'%>
+	 		<%= f.select :user_id, options_for_select(Role.find_by(name:'Student').users.collect{|t| [t.email, t.id]}),{ :prompt => "Please select"} ,{:multiple => true,:class => 'multiselect-ui'} %><br/><br/>
 
-	 		<%= f.label :teacher%><br/>
-	 		<%= f.select :user_id, options_for_select(Role.find_by(name:'Teacher').users.where.not(id: current_user).collect{|t| [t.email, t.id]}),{ :prompt => "Please select"} ,{:multiple => true} %><br/>
+	 		<%= f.label :teacher,:class => 'col-md-4'%>
+	 		<%= f.select :user_id, options_for_select(Role.find_by(name:'Teacher').users.where.not(id: current_user).collect{|t| [t.email, t.id]}),{ :prompt => "Please select"} ,{:multiple => true,:class => 'multiselect-ui'} %><br/><br/>
 	 		<%= f.hidden_field :assignment_id, :value => @assignment.id %>
-		  <%= f.button :submit, class:'btn btn-primary'%>
+		  <%= f.button :submit, class:'btn btn-primary multiselect-button'%>
 		<% end %>
 	<%end%>
 </div>

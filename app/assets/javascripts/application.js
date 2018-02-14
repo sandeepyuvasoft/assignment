@@ -13,6 +13,8 @@
 //= require rails-ujs
 //= require jquery
 //= require cocoon
+//= require custom
+//= require bootstrap-multiselect
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
