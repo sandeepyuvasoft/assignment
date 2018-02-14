@@ -14,6 +14,7 @@
 				<td><%=assignment.subject%></td>
 				<td><%=assignment.description%></td>
 				<td><%=link_to "Assigned" , assigned_path(assignment.id)%></td>
+				<td><%=link_to "Show" , assignment_path(assignment.id)%></td>
 		</tr>
 			<%end%>	
 	</table>
