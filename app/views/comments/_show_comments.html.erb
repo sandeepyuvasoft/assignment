@@ -1,8 +1,0 @@
-<%comments = @assignment.comments.last(5)%>
-<%if comments.present?%>
-  Comment : 
-  <br/>
-	<%comments.each do |comment|%>
-	 <%=comment.comment%><br/>
-	<%end%>
-<%end%>	

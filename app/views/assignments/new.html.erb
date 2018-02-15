@@ -4,19 +4,11 @@
       <%= f.fields_for :assignments do |ff|%>
         <%= render 'assignment_fields', f: ff%>
       <%end%>
-      
-      <div class="links">
-        <h3><%= link_to_add_association 'Add assignment', f, :assignments , id: 'show_submit_button', class:'btn btn-primary'%></h3>
-      </div>
     </div>
-    <%= f.button :submit, class:'btn btn-primary',id: 'show_button'%>
+      <div class="links">
+        <h3><%= link_to_add_association 'Add assignment', f, :assignments, class:'btn btn-primary'%></h3>
+      </div>
+    
+    <%= f.button :submit, class:'btn btn-primary'%>
   <% end %>
 </div>
-
-<script type="text/javascript">
-  document.getElementById("show_button").style.display = "none";
-  $("#show_submit_button").click(function(){
-    $('#show_button').show();
-  });
-
-</script>

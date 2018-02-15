@@ -1,7 +1,37 @@
-Comment : 
-<br/>
-<%comments = Assignment.find(params[:assignment_id]).comments.last(5)%>
-<%comments.each do |comment|%>
-  <%=comment.comment%><br/>
-<%end%>
+<%comments = params[:assignment_id].present? ? Assignment.find(params[:assignment_id]).comments.last(5) : Assignment.find(params[:id]).comments.last(5)%>
+<div class="container" id="add-comment">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+            <span class="glyphicon glyphicon-comment"></span> Comment
+          </div>
+          <div class="panel-body" id="add-comment">
+            <ul class="chat">
+              <li class="right clearfix">
+              <div class="chat-body clearfix">
+                <div class="header">
+                  <%if comments.present?%>
+										<%comments.each do |comment|%>
+											<p><%=comment.comment%></p>
+                    <%end%>
+									<%end%>	
+                </div>
+              </div>
+              </li>
+            </ul>
+          </div>
+          <div class="panel-footer">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Enter Comment" id="comment">
+              <span class="input-group-btn">
+
+              	<button type="submit" class="btn btn-primary submit_comment" assignment_id="<%=params[:assignment_id] || params[:id]%>">Submit</button>
+              </span>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
 

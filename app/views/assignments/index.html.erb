@@ -3,7 +3,7 @@
 	<h3><%=link_to "Add Assignment" , new_assignment_path%></h3>
 <%end%>
 <%if @assignments.flatten.present?%>
-	<table border="">
+	<table class="table">
 		<tr>
 			<th>Subject</th>
 			<th>Description</th>
@@ -20,7 +20,7 @@
 	</table>
 <%end%><br/>
 <%if @assignment_coordinators.flatten.present?%>
-	<table border="">
+	<table class="table">
 		<tr>
 			<th>Subject</th>
 			<th>Description</th>

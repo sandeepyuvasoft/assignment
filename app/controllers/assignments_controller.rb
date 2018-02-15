@@ -13,6 +13,7 @@ class AssignmentsController < ApplicationController
   def new
   	if(current_user.has_role? :Teacher)	
   		@user = User.new
+      1.times {@user.assignments.new}
   	else
   		redirect_to assignments_path
   	end
